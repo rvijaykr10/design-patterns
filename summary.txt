@@ -1,0 +1,92 @@
+Here’s a summary of all the design patterns used in the FastAPI:
+
+1. Factory Pattern
+Purpose: Creates objects dynamically based on runtime conditions (e.g., database connections or services).
+
+Example: A DatabaseFactory class creates different types of database clients (PostgreSQL, MongoDB) based on input.
+2. Observer Pattern
+Purpose: Allows a subject to notify its observers when a state change occurs, often used for event-driven systems like logging or notifications.
+
+Example: A Subject class notifies multiple observers (like Logger and Notifier) when a new user registers.
+3. Strategy Pattern
+Purpose: Allows switching between different algorithms or strategies based on user input or runtime conditions.
+
+Example: A TextProcessor class uses different strategies to convert text to uppercase or lowercase.
+4. Singleton Pattern
+Purpose: Ensures only one instance of a class is created and used throughout the application.
+
+Example: A Logger class that ensures only one instance exists for logging messages across different parts of the application.
+5. Abstract Factory Pattern
+Purpose: Creates families of related objects without specifying their concrete classes.
+
+Example: A UIFactory creates different types of UI elements (buttons) depending on the operating system (Windows or Mac).
+6. Builder Pattern
+Purpose: Helps construct complex objects step by step, often used for objects with many attributes.
+
+Example: A ResponseBuilder class builds a structured response by adding status, message, and data.
+7. Chain of Responsibility Pattern
+Purpose: Passes a request along a chain of handlers, where each handler can process the request or pass it on.
+
+Example: An HTTP request passes through authentication and logging handlers in sequence.
+8. Command Pattern
+Purpose: Encapsulates a request as an object, allowing you to decouple the sender and the receiver.
+
+Example: Different commands (CreateUserCommand, DeleteUserCommand) are executed by a command invoker.
+9. Composite Pattern
+Purpose: Composes objects into tree-like structures for representing part-whole hierarchies.
+
+Example: A Cart class can contain Item objects, and both Item and Cart implement the Component interface.
+10. Decorator Pattern
+Purpose: Dynamically adds behavior to objects by wrapping them in additional functionality.
+
+Example: The check_permissions decorator adds behavior to routes to ensure the user has the correct permissions before accessing a route.
+11. Flyweight Pattern
+Purpose: Reduces memory usage by sharing common objects, used when many objects are created that have shared attributes.
+
+Example: A Logger class where only one instance is used, ensuring that logging behavior is shared across different parts of the system.
+12. Iterator Pattern
+Purpose: Allows iteration over a collection without exposing its underlying structure.
+
+Example: An ItemIterator is used to iterate over a list of items (like fruits) in a cart.
+13. Mediator Pattern
+Purpose: Centralizes communication between objects to reduce direct dependencies, improving maintainability.
+
+Example: An EmailService and SMSService send notifications through a mediator pattern, reducing dependencies between them.
+14. Adapter Pattern
+Purpose: Allows incompatible interfaces to work together by creating an adapter that translates one interface into another.
+
+Example: A MongoDBAdapter converts the interface of MongoDBClient to match the DatabaseClient interface.
+15. Proxy Pattern
+Purpose: Provides a surrogate or placeholder to control access to an object, often for lazy loading, security, or performance reasons.
+
+Example: A ProxyService class acts as an intermediary to add additional logic (such as permission checks) before delegating the task to RealService.
+16. State Pattern
+Purpose: Allows an object to change its behavior when its internal state changes, making state transitions explicit.
+
+Example: A Context class changes its state between ConcreteStateA and ConcreteStateB when the state is requested.
+17. Template Method Pattern
+Purpose: Defines the structure of an algorithm, allowing specific steps to be implemented by subclasses.
+
+Example: A ConcreteDataProcessor class implements specific steps (load_data, clean_data, analyze_data) for processing data while using the template defined in DataProcessor.
+18. Memento Pattern
+Purpose: Captures and externalizes an object's internal state so it can be restored later without violating encapsulation.
+
+Example: An Originator object saves its state (using Memento), which can later be restored, allowing undo functionality.
+19. Visitor Pattern
+Purpose: Adds new operations to existing class structures without modifying the classes themselves.
+
+Example: A ConcreteVisitor implements custom operations for visiting ConcreteElementA and ConcreteElementB objects.
+20. Null Object Pattern
+Purpose: Provides a default behavior for an object instead of returning None or null.
+
+Example: A NullUser class is used when no user is provided, ensuring the application doesn't need to handle null values directly.
+21. Bridge Pattern
+Purpose: Decouples abstraction from its implementation so both can evolve independently.
+
+Example: A Circle class uses a DrawingAPI (either DrawingAPI1 or DrawingAPI2) to draw circles without being tightly coupled to the specific implementation.
+Summary of Key Benefits of Design Patterns:
+Reusability: Many design patterns promote code reuse and flexibility, making it easier to apply in different parts of the application.
+Maintainability: They help keep the codebase clean and easier to maintain, with clear responsibilities for each class or object.
+Decoupling: Patterns like the Strategy and Mediator allow components to be more decoupled, reducing direct dependencies.
+Performance Optimization: Patterns like the Flyweight and Proxy improve resource usage and control access to resources, leading to better performance.
+Each design pattern helps address specific problems in system design by introducing solutions that improve flexibility, maintainability, and scalability, especially in a web framework like FastAPI.
